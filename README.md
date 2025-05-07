@@ -2,23 +2,31 @@
 
 > Collection Of Utilities For Daily Life Hacks
 
-## Youtube Transcriber
+## Usage
 
-- extract caption if its available, eg: https://youtube.com/shorts/uYZ4J7ctpio
-- otherwise transcribe the audio to text, eg. https://youtube.com/shorts/NbY29sW7gbU
+### Install Locally
 
-## Mistral OCR
+```bash
+git clone https://github.com/hoishing/handy-utils.git
+uv sync
+```
 
-- create markdown file from PDF and images with [Mistral OCR](https://mistral.ai/news/mistral-ocr)
+- setup `.streamlit/secrets.toml` (optional)
+- api key field in the app will be auto-filled after setting the secret file
 
-## Remove DRM
+```ini
+GEMINI_API_KEY = "gemini-api-key"
+GROQ_API_KEY = "groq-api-key"
+MISTRAL_API_KEY = "mistral-api-key"
+```
 
-- remove DRM for ebooks purchased from Google Play Books
+### Use Online
 
-## APN Tester
+https://handy-utils.streamlit.app
 
-- Apple Push Notification testing made easy
+## Questions?
 
-## Direct Link Creator
+Open a [github issue] or ping me on [LinkedIn]
 
-- create direct link for files in Google Drive, Imgur, Github
+[github issue]: https://github.com/hoishing/handy-utils/issues
+[LinkedIn]: https://www.linkedin.com/in/kng2

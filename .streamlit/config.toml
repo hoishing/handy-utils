@@ -4,9 +4,6 @@ magicEnabled = false
 [server]
 enableStaticServing = true
 
-[client]
-toolbarMode = "minimal"
-
 [theme]
 base = "dark"
 # backgroundColor = "#282C34"
