@@ -43,10 +43,15 @@ def transcribe(
     audio: types.File | types.Part,
     client: Client,
     model: str = "gemini-2.0-flash",
-    prompt: str = "Generate a transcript of the speech",
+    system_prompt: str = "You are a professional transcriber. You output only transcript, no other text.",
+    user_prompt: str = "Generate a transcript of the speech",
 ) -> str:
     """transcribe the audio using Gemini"""
-    response = client.models.generate_content(model=model, contents=[prompt, audio])
+    response = client.models.generate_content(
+        model=model,
+        config=types.GenerateContentConfig(system_instruction=system_prompt),
+        contents=[user_prompt, audio],
+    )
     return response.text
 
 

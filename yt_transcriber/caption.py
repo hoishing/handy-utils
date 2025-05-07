@@ -22,8 +22,7 @@ def caption_ui(yt: YouTube | None, langs: list[str], api_key: str) -> None:
         label="Select the language",
         options=langs,
         index=None,
-        format_func=lambda x: x.split(".")[-1],
-        disabled=not langs,
+        format_func=lambda x: x.split(".")[-1]
     )
 
     format = st.radio(

@@ -25,6 +25,9 @@ def body():
     api_key = api_key_input("Gemini")
     url = st.text_input("Youtube URL", key="url-input", disabled=not api_key)
 
+    if not api_key or not url:
+        st.stop()
+
     yt = youtube_obj(url)
     langs = [c.code for c in yt.captions] if yt else []
 
