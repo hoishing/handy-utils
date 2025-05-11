@@ -1,4 +1,5 @@
 import streamlit as st
+from direct_link import direct_link, direct_link_icon
 from list_groq_models import groq_models, models_icon
 from mistral_ocr import mistral_ocr, ocr_icon
 from yt_transcriber import yt_icon, yt_transcriber
@@ -32,6 +33,11 @@ page3 = st.Page(
     title="Groq Models",
     icon=models_icon,
 )
+page4 = st.Page(
+    direct_link,
+    title="Direct Link",
+    icon=direct_link_icon,
+)
 
-pg = st.navigation([page1, page2, page3])
+pg = st.navigation([page1, page2, page3, page4])
 pg.run()

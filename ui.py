@@ -2,7 +2,7 @@ import streamlit as st
 from typing import Callable, Literal, get_args
 from utils import get_api_key
 
-LLM = Literal["Gemini", "Groq", "Mistral"]
+LLM = Literal["gemini", "groq", "mistral"]
 LLM_SITES = [
     "https://ai.google.dev/gemini-api/docs/api-key",
     "https://console.groq.com/docs/quickstart",
@@ -28,10 +28,12 @@ def divider(key: int = 1):
 
 def api_key_input(llm: LLM):
     api_key_docs = dict(zip(get_args(LLM), LLM_SITES))
+    llm_title = llm.title()
+    llm_lower = llm.lower()
     return st.text_input(
-        f"{llm} API key",
-        key=f"{llm.lower()}-api-key",
+        f"{llm_title} API key",
+        key=f"{llm_lower}-api-key",
         type="password",
         value=get_api_key(llm),
-        help=f"Visit [{llm}]({api_key_docs[llm]}) to get the API key",
+        help=f"Visit [{llm_title}]({api_key_docs[llm_lower]}) to get the API key",
     )
