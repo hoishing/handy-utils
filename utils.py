@@ -15,3 +15,8 @@ def get_api_key(brand: str) -> str | None:
         return sess[key_name]
     except Exception:
         return None
+
+
+def url_path(title: str):
+    """convert utility title to url path"""
+    return title.lower().replace(" ", "_")

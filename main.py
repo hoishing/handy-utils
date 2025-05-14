@@ -1,9 +1,10 @@
-import streamlit as st
-from direct_link import direct_link, direct_link_icon
-from list_groq_models import groq_models, models_icon
+import direct_link
+import groq_models
 import md2epub
-from mistral_ocr import mistral_ocr, ocr_icon
-from yt_transcriber import yt_icon, yt_transcriber
+import mistral_ocr
+import streamlit as st
+import yt_transcriber
+from utils import url_path
 
 st.set_page_config(
     page_title="Handy Utilities",
@@ -19,31 +20,44 @@ st.logo("static/handy-utils-banner.png")
 st.html("style.css")
 
 page1 = st.Page(
-    yt_transcriber,
-    title="Youtube Transcriber",
-    icon=yt_icon,
+    page=yt_transcriber.app,
+    title=yt_transcriber.title,
+    icon=yt_transcriber.icon,
+    url_path=url_path(yt_transcriber.title),
     default=True,
 )
 page2 = st.Page(
-    mistral_ocr,
-    title="Mistral OCR",
-    icon=ocr_icon,
+    page=mistral_ocr.app,
+    title=mistral_ocr.title,
+    icon=mistral_ocr.icon,
+    url_path=url_path(mistral_ocr.title),
 )
 page3 = st.Page(
-    groq_models,
-    title="Groq Models",
-    icon=models_icon,
+    groq_models.app,
+    title=groq_models.title,
+    icon=groq_models.icon,
+    url_path=url_path(groq_models.title),
 )
 page4 = st.Page(
-    direct_link,
-    title="Direct Link",
-    icon=direct_link_icon,
+    direct_link.app,
+    title=direct_link.title,
+    icon=direct_link.icon,
+    url_path=url_path(direct_link.title),
 )
 page5 = st.Page(
-    md2epub.app,
+    page=md2epub.app,
     title=md2epub.title,
     icon=md2epub.icon,
+    url_path=url_path(md2epub.title),
 )
 
-pg = st.navigation([page1, page2, page3, page4, page5])
+pg = st.navigation(
+    [
+        page1,
+        page2,
+        page3,
+        page4,
+        page5,
+    ]
+)
 pg.run()

@@ -2,9 +2,10 @@ import pandas as pd
 import streamlit as st
 from groq import Groq
 from pandas import DataFrame
-from ui import api_key_input, app_header, divider, main_container
+from ui import api_key_input, app_header, main_container
 
-models_icon = ":material/lightbulb:"
+icon = ":material/lightbulb:"
+title = "Groq Models"
 
 
 def model_df(groq_api_key):
@@ -50,10 +51,10 @@ def body():
         st.error("Please enter a valid Groq API Key")
 
 
-def groq_models():
+def app():
     app_header(
-        icon=f":orange[{models_icon}]",
-        title="Groq Models",
+        icon=f":orange[{icon}]",
+        title=title,
         description="List all currently active and available models in Groq",
     )
 

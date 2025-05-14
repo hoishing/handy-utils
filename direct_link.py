@@ -2,11 +2,12 @@
 import streamlit as st
 from ui import app_header, divider, main_container
 
-direct_link_icon = ":material/link:"
+icon = ":material/link:"
+title = "Direct Link"
 
 
 def body():
-    org_url = st.text_input(label="Google Drive or Github URL")
+    org_url = st.text_input(label="Google Drive or Github file URL")
     if not org_url:
         return
 
@@ -24,10 +25,10 @@ def body():
         st.write(f":material/download: {removed_blob}")
 
 
-def direct_link():
+def app():
     app_header(
-        icon=direct_link_icon,
-        title="Direct Link",
-        description="Get direct link for files saved in Google Drive or Github",
+        icon=f":blue[{icon}]",
+        title=title,
+        description="Get direct link of Google Drive or Github file",
     )
     main_container(body)

@@ -15,10 +15,11 @@ from ebooklib.epub import (
 )
 from pathlib import Path
 from streamlit.runtime.uploaded_file_manager import UploadedFile
+from ui import app_header, divider, main_container
 from zipfile import ZipFile
 
 icon = ":material/markdown:"
-title = "Markdown → Epub"
+title = "MD to Epub"
 
 
 # %% ================================================= extract files from zip
@@ -105,7 +106,6 @@ def add_images(book: EpubBook, content_bytes: dict[str, bytes]):
 
 
 # %% ================================================= streamlit UI
-from ui import app_header, divider, main_container
 
 
 def body():
@@ -157,7 +157,7 @@ def body():
 
 def app():
     app_header(
-        icon=f":blue[{icon}]",
+        icon=f":violet[{icon}]",
         title=title,
         description="Convert markdown with images to epub",
     )

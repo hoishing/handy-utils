@@ -1,17 +1,16 @@
-# %% ================================================= import
-
+# %% =================================================
 import streamlit as st
 from base64 import b64decode
 from io import BytesIO
 from mistralai import Mistral, OCRResponse
 from pathlib import Path
 from streamlit.elements.widgets.file_uploader import UploadedFile
+from ui import api_key_input, app_header, divider, main_container
 from zipfile import ZIP_DEFLATED, ZipFile
 
-# docs: https://docs.mistral.ai/capabilities/document/
-
-MODEL = "mistral-ocr-latest"
-ocr_icon = ":material/scanner:"
+model = "mistral-ocr-latest"
+icon = ":material/scanner:"
+title = "Mistral OCR"
 
 
 # %% ================================================= ocr functions
@@ -21,7 +20,7 @@ def ocr(client: Mistral, url: str, is_pdf: bool) -> OCRResponse:
     """OCR a PDF or image URL and return the Mistral OCR response"""
     doc_type = "document_url" if is_pdf else "image_url"
     return client.ocr.process(
-        model=MODEL,
+        model=model,
         document={"type": doc_type, doc_type: url},
         include_image_base64=True,
     )
@@ -91,8 +90,6 @@ def create_zip(markdown: str, images: dict[str, str]) -> BytesIO:
 
 # %% =================================================  streamlit app
 
-from ui import api_key_input, app_header, divider, main_container
-
 
 def body():
     api_key = api_key_input("mistral")
@@ -135,10 +132,10 @@ def body():
         status.update(label="OCR Completed", state="complete")
 
 
-def mistral_ocr():
+def app():
     app_header(
-        icon=f":orange[{ocr_icon}]",
-        title="Mistral OCR",
+        icon=f":orange[{icon}]",
+        title=title,
         description="Turn PDF or Image to Markdown with Mistral AI OCR",
     )
     main_container(body)
