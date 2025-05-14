@@ -10,6 +10,10 @@ dependencies = [
     "streamlit",
     "google-genai",
     "groq>=0.24.0",
+    "beautifulsoup4>=4.13.4",
+    "lxml>=5.4.0",
+    "pypandoc>=1.15",
+    "ebooklib>=0.19",
 ]
 
 [dependency-groups]
@@ -18,3 +22,4 @@ dev = ["ipykernel>=6.29.5", "pytest>=8.3.5", "watchdog>=6.0.0"]
 [tool.ruff]
 isort.no-sections = true
 extend-ignore = ["E203", "E402", "E501", "E712", "F401", "F811"]
+ 

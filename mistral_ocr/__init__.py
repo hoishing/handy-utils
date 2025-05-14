@@ -1,4 +1,5 @@
-# %%
+# %% ================================================= import
+
 import streamlit as st
 from base64 import b64decode
 from io import BytesIO
@@ -13,7 +14,9 @@ MODEL = "mistral-ocr-latest"
 ocr_icon = ":material/scanner:"
 
 
-# %% ocr functions
+# %% ================================================= ocr functions
+
+
 def ocr(client: Mistral, url: str, is_pdf: bool) -> OCRResponse:
     """OCR a PDF or image URL and return the Mistral OCR response"""
     doc_type = "document_url" if is_pdf else "image_url"
@@ -24,7 +27,9 @@ def ocr(client: Mistral, url: str, is_pdf: bool) -> OCRResponse:
     )
 
 
-# %% file preparation
+# %% ================================================= file preparation
+
+
 def upload_file_to_mistral(client: Mistral, st_file: UploadedFile) -> str:
     """Upload a streamlit uploaded file to Mistral and return the file ID"""
     uploaded_file = client.files.upload(
@@ -37,7 +42,9 @@ def upload_file_to_mistral(client: Mistral, st_file: UploadedFile) -> str:
     return uploaded_file.id
 
 
-# %% process response
+# %% ================================================= process response
+
+
 def extract_markdown(response: OCRResponse) -> str:
     """Extract markdown from OCR response"""
     markdown_parts = []
@@ -58,7 +65,9 @@ def extract_images(response: OCRResponse) -> dict[str, str]:
     return images
 
 
-# %% create zip buffer
+# %% ================================================= create zip buffer
+
+
 def create_zip(markdown: str, images: dict[str, str]) -> BytesIO:
     """Create a zip file from markdown and images {name: base64_string} and return a zip buffer"""
     zip_buffer = BytesIO()
@@ -80,7 +89,8 @@ def create_zip(markdown: str, images: dict[str, str]) -> BytesIO:
     return zip_buffer
 
 
-# %% streamlit app
+# %% =================================================  streamlit app
+
 from ui import api_key_input, app_header, divider, main_container
 
 

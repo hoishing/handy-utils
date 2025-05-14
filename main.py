@@ -1,6 +1,7 @@
 import streamlit as st
 from direct_link import direct_link, direct_link_icon
 from list_groq_models import groq_models, models_icon
+import md2epub
 from mistral_ocr import mistral_ocr, ocr_icon
 from yt_transcriber import yt_icon, yt_transcriber
 
@@ -38,6 +39,11 @@ page4 = st.Page(
     title="Direct Link",
     icon=direct_link_icon,
 )
+page5 = st.Page(
+    md2epub.app,
+    title=md2epub.title,
+    icon=md2epub.icon,
+)
 
-pg = st.navigation([page1, page2, page3, page4])
+pg = st.navigation([page1, page2, page3, page4, page5])
 pg.run()

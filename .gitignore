@@ -67,3 +67,6 @@ dist/
 try*
 secrets.toml
 *.ipynb
+*.epub
+*.xhtml
+*.zip
