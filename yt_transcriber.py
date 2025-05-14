@@ -100,6 +100,7 @@ def caption_ui(yt: YouTube | None, langs: list[str], api_key: str) -> None:
 
     lang = st.selectbox(
         label="Select the language",
+        key="caption-lang",
         options=langs,
         index=None,
         format_func=lambda x: x.split(".")[-1],
@@ -107,6 +108,7 @@ def caption_ui(yt: YouTube | None, langs: list[str], api_key: str) -> None:
 
     format = st.radio(
         label="Select the format",
+        key="caption-format",
         options=["srt", "txt"],
         index=0,
         horizontal=True,
@@ -122,7 +124,11 @@ def caption_ui(yt: YouTube | None, langs: list[str], api_key: str) -> None:
             transcript = add_punctuation(api_key, raw_transcript)
 
     st.text_area(
-        label="Captions", value=transcript, height=400, disabled=not transcript
+        label="Captions",
+        key="caption-output",
+        value=transcript,
+        height=400,
+        disabled=not transcript,
     )
 
 
@@ -136,7 +142,9 @@ def transcribe_ui(yt: YouTube, api_key: str) -> str:
         audio_file = upload_gemini_audio(filename, buffer, mime_type, client)
 
         transcript = transcribe(audio_file, client)
-        st.text_area(label="Transcript", value=transcript, height=400)
+        st.text_area(
+            label="Transcript", key="transcript-output", value=transcript, height=400
+        )
 
 
 def body():
