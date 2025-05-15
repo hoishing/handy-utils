@@ -17,9 +17,13 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["ipykernel>=6.29.5", "pytest>=8.3.5", "watchdog>=6.0.0"]
+dev = [
+    "ipykernel>=6.29.5",
+    "pytest>=8.3.5",
+    "pytest-playwright>=0.7.0",
+    "watchdog>=6.0.0",
+]
 
 [tool.ruff]
 isort.no-sections = true
 extend-ignore = ["E203", "E402", "E501", "E712", "F401", "F811"]
- 

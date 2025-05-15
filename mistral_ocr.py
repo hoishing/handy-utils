@@ -116,8 +116,6 @@ def body():
             ocr_response = ocr(client, signed_url.url, is_pdf=is_pdf)
             markdown = extract_markdown(ocr_response)
             images = extract_images(ocr_response)
-            # st.write(images)
-            # st.write(markdown)
             zip_buffer = create_zip(markdown, images)
             zip_filename = Path(st_file.name).with_suffix(".zip")
             st.download_button(
@@ -139,3 +137,10 @@ def app():
         description="Turn PDF or Image to Markdown with Mistral AI OCR",
     )
     main_container(body)
+
+
+# %% ================================================= for testing
+
+
+if __name__ == "__main__":
+    app()
