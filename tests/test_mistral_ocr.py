@@ -1,7 +1,7 @@
 import pytest
 from pathlib import Path
 from playwright.sync_api import Page, expect
-from tests.conftest import st_server_process
+from conftest import st_server_process
 
 
 @pytest.fixture(scope="module", autouse=True)

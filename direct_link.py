@@ -23,6 +23,8 @@ def body():
         replaced_domain = org_url.replace("github.com", "raw.githubusercontent.com")
         removed_blob = replaced_domain.replace("/blob/", "/")
         st.write(f":material/download: {removed_blob}")
+    else:
+        st.error("Invalid URL")
 
 
 def app():
@@ -32,3 +34,10 @@ def app():
         description="Get direct link of Google Drive or Github file",
     )
     main_container(body)
+
+
+# %% ================================================= for testing
+
+
+if __name__ == "__main__":
+    app()
