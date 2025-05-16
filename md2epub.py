@@ -164,6 +164,12 @@ def app():
     main_container(body)
 
 
+# %% ================================================= testing
+
+if __name__ == "__main__":
+    app()
+
+
 # %% ================================================= trail
 
 # from pathlib import Path

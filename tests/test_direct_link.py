@@ -22,13 +22,20 @@ def get_textbox(page: Page):
 
 def test_google_drive_url(page: Page):
     textbox = get_textbox(page)
+    expect(textbox).to_be_visible(timeout=2000)
     textbox.fill(google_drive_url)
     textbox.press("Enter")
     expect(
-        page.get_by_role("link", name="https://drive.google.com/uc?")
+        page.get_by_role(
+            "link",
+            name="https://drive.google.com/uc?",
+        )
     ).to_be_visible()
     expect(
-        page.get_by_role("link", name="https://drive.google.com/thumbnail?")
+        page.get_by_role(
+            "link",
+            name="https://drive.google.com/thumbnail?",
+        )
     ).to_be_visible()
 
 

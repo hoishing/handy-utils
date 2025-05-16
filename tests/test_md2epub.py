@@ -6,14 +6,14 @@ from playwright.sync_api import Page, expect
 
 @pytest.fixture(scope="module", autouse=True)
 def app():
-    process = st_server_process("mistral_ocr.py")
+    process = st_server_process("md2epub.py")
     yield
     process.terminate()
 
 
 def test_ui_loaded(page: Page):
     page.goto("http://localhost:9507/")
-    heading = page.get_by_role("heading", name="mistral ocr")
+    heading = page.get_by_role("heading", name="md to epub")
     upload_button = page.get_by_role("button", name="browse files")
     expect(heading).to_be_visible(timeout=2000)
     expect(upload_button).to_be_visible()
@@ -21,16 +21,10 @@ def test_ui_loaded(page: Page):
 
 def test_file_upload(page: Page):
     page.goto("http://localhost:9507/")
-    file_names = ["blower.jpg", "sample.pdf"]
-    assets_dir = Path(__file__).parent / "assets"
-    test_file_paths = [assets_dir / f for f in file_names]
+    asset_path = Path(__file__).parent / "assets/sample.zip"
     upload_button = page.get_by_role("button", name="browse files")
     with page.expect_file_chooser() as file_chooser_wrapper:
         upload_button.click()
     file_chooser = file_chooser_wrapper.value
-    file_chooser.set_files(test_file_paths)
-
-    for file_path in test_file_paths:
-        zip_file_name = file_path.with_suffix(".zip").name
-        element = page.get_by_role("button", name=f"download: {zip_file_name}")
-        expect(element).to_be_visible(timeout=20000)
+    file_chooser.set_files(asset_path)
+    expect(page.get_by_role("button", name="download epub")).to_be_visible()
