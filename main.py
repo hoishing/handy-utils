@@ -25,10 +25,11 @@ st.html("style.css")
 page_names = [
     "yt_transcriber",
     "mistral_ocr",
-    "groq_models",
-    "direct_link",
     "md2epub",
+    "direct_link",
     "rm_drm",
+    "groq_models",
+    "astrobro_updater",
 ]
 
 pages = []
