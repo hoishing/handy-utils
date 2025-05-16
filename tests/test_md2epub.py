@@ -21,7 +21,7 @@ def test_ui_loaded(page: Page):
 
 def test_file_upload(page: Page):
     page.goto("http://localhost:9507/")
-    asset_path = Path(__file__).parent / "assets/sample.zip"
+    asset_path = Path("tests/assets/sample.zip")
     upload_button = page.get_by_role("button", name="browse files")
     with page.expect_file_chooser() as file_chooser_wrapper:
         upload_button.click()

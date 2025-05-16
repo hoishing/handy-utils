@@ -1,7 +1,12 @@
 import pytest
 import socket
+import sys
 import time
+from pathlib import Path
 from subprocess import Popen
+
+# Add the project root to the Python path
+sys.path.insert(0, str(Path(__file__).parent))
 
 
 def wait_starting(process: Popen, timeout: int = 30):
