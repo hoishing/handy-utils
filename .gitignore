@@ -70,6 +70,7 @@ secrets.toml
 *.epub
 *.xhtml
 *.zip
+!tests/assets/*
 
 # Playwright
 /test-results/

@@ -3,6 +3,7 @@ magicEnabled = false
 
 [server]
 enableStaticServing = true
+runOnSave = true
 
 [theme]
 base = "dark"
