@@ -5,7 +5,7 @@ from deDRM.ineptepub import decryptBook as decrypt_epub
 from deDRM.ineptpdf import decryptBook as decrypt_pdf
 from io import BytesIO
 from streamlit.runtime.uploaded_file_manager import UploadedFile
-from ui import app_header, main_container
+from ui import app_header, divider, main_container
 
 icon = ":material/key:"
 title = "Remove DRM"
@@ -30,19 +30,29 @@ def decrypt_file(encrypted_file: UploadedFile, dat_file: UploadedFile) -> BytesI
 
 
 def body():
-    st.write("#### Remove DRM ")
+    st.markdown(
+        """
+        #### 🧑‍💻 Usage
+
+        - only Adobe Digital Edition(ADE) for macOS is supported
+        - export the ebook as `acsm` file from Google Play Books
+        - import the `acsm` file to ADE
+        - right click the ebook in ADE and click `Show File in Finder`
+        - upload the drm-protected epub/pdf file from Finder
+        - upload the activation file from ADE
+            - `~/Library/Application Support/Adobe/Digital Editions/activation.dat`
+        - download the decrypted epub/pdf file
+        """
+    )
+
+    divider()
 
     mime_types = {"pdf": "application/pdf", "epub": "application/epub+zip"}
     book_data = file_name = ""
     mime = mime_types["epub"]
 
-    key_file = st.file_uploader(
-        "Activation file",
-        type="dat",
-        help="~/Library/Application Support/Adobe/Digital Editions/activation.dat\n\nOnly Digital Edition for macOS is supported",
-    )
-
     encrypted_file = st.file_uploader("epub or pdf file", type=["epub", "pdf"])
+    key_file = st.file_uploader("Activation file", type="dat")
 
     if encrypted_file and key_file:
         book_data = decrypt_file(encrypted_file, key_file)
@@ -64,7 +74,7 @@ def app():
     app_header(
         icon=f":orange[{icon}]",
         title=title,
-        description="remove DRM of your own ebook in Adobe Digital Edition",
+        description="Remove DRM of Your Own Ebook from Adobe Digital Edition",
     )
     main_container(body)
 

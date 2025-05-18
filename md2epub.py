@@ -113,11 +113,14 @@ def body():
         """
         #### 🧑‍💻 Usage
 
-        - Create a markdown file with images in the same folder.
-        - Zip the folder, name of the zip file will be the title of the epub.
+        - Upload the zip file created in [Mistral OCR](/mistral_ocr)
+
+        OR
+
+        - Put a markdown file with images in the same folder.
+        - Zip the folder, name the zip file as the title of the epub.
         - Upload the zip file.
-        - The table of contents will be generated from all H1 headings.
-        - Download the epub file.
+        - Download the epub with TOC generated from all H1 headings.
         """
     )
     divider()
