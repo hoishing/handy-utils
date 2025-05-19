@@ -27,6 +27,7 @@ page_names = [
     "mistral_ocr",
     "md2epub",
     "direct_link",
+    "apn_tester",
     "rm_drm",
     "groq_models",
     "astrobro_updater",
