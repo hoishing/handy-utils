@@ -2,8 +2,8 @@ import streamlit as st
 from pytest import fixture
 from streamlit.testing.v1 import AppTest
 
-url_with_caption = "https://youtube.com/shorts/uYZ4J7ctpio?si=znc1rDtst7TuaXq0"
-url_without_caption = "https://youtube.com/shorts/NbY29sW7gbU?si=3xLVg6641qfLYHY6"
+url_with_caption = "https://youtube.com/shorts/uYZ4J7ctpio"
+url_without_caption = "https://youtube.com/shorts/NbY29sW7gbU"
 
 
 @fixture(scope="module")
