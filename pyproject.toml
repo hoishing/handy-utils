@@ -16,6 +16,7 @@ dependencies = [
     "ebooklib>=0.19",
     "pycryptodome==3.21.0",
     "pyjwt>=2.10.1",
+    "yt-dlp>=2025.6.9",
 ]
 
 [dependency-groups]
