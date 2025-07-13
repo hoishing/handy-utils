@@ -49,19 +49,22 @@ def body():
         """,
     )
     divider()
-    c1, c2 = st.columns([3, 1], vertical_alignment="bottom")
-    name_input = c1.text_input("Package Names", placeholder="name1, name2, name3...")
-    if c2.button("Check", use_container_width=True) and name_input:
-        st.write("")
-        names = name_input.split(",")
-        for name in names:
-            for key, value in check_name(name.strip()).items():
-                badge = (
-                    ":green-badge[:material/check_circle: available]"
-                    if value
-                    else ":red-badge[:material/do_not_disturb_on: taken]"
-                )
-                st.write(f"&nbsp; {badge} &nbsp; {key}")
+    with st.form("name_checker", enter_to_submit=True):
+        c1, c2 = st.columns([3, 1], vertical_alignment="bottom")
+        name_input = c1.text_input(
+            "Package Names", placeholder="name1, name2, name3..."
+        )
+        if c2.form_submit_button("Check", use_container_width=True) and name_input:
+            st.write("")
+            names = name_input.split(",")
+            for name in names:
+                for key, value in check_name(name.strip()).items():
+                    badge = (
+                        ":green-badge[:material/check_circle: available]"
+                        if value
+                        else ":red-badge[:material/do_not_disturb_on: taken]"
+                    )
+                    st.write(f"&nbsp; {badge} &nbsp; {key}")
 
 
 def app():
