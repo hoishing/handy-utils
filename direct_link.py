@@ -1,5 +1,6 @@
 # %%
 import streamlit as st
+from pathlib import Path
 from ui import app_header, divider, main_container
 
 
@@ -25,12 +26,5 @@ def body():
 
 
 def app():
-    app_header(__name__)
+    app_header(Path(__file__).stem)
     main_container(body)
-
-
-# %% ================================================= for testing
-
-
-if __name__ == "__main__":
-    app()

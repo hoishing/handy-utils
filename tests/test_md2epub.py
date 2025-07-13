@@ -1,18 +1,15 @@
 import pytest
-from tests.conftest import st_server_process
 from pathlib import Path
 from playwright.sync_api import Page, expect
 
 
-@pytest.fixture(scope="module", autouse=True)
-def app():
-    process = st_server_process("md2epub.py")
-    yield
-    process.terminate()
+@pytest.fixture(scope="function", autouse=True)
+def setup(page: Page):
+    page.goto("http://localhost:9507/")
+    page.get_by_role("link", name="MD to EPUB").click()
 
 
 def test_ui_loaded(page: Page):
-    page.goto("http://localhost:9507/")
     heading = page.get_by_role("heading", name="md to epub")
     upload_button = page.get_by_role("button", name="browse files")
     expect(heading).to_be_visible(timeout=2000)
@@ -20,7 +17,6 @@ def test_ui_loaded(page: Page):
 
 
 def test_file_upload(page: Page):
-    page.goto("http://localhost:9507/")
     asset_path = Path("tests/assets/sample.zip")
     upload_button = page.get_by_role("button", name="browse files")
     with page.expect_file_chooser() as file_chooser_wrapper:
