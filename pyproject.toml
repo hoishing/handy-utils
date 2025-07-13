@@ -1,0 +1,39 @@
+[project]
+authors = [{ name = "Kelvin Ng", email = "hoishing@gmail.com" }]
+license = { text = "MIT" }
+name = "handy-utils"
+version = "0.5.3"
+description = "Handy Utilities For Daily Life Hacks"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mistralai",
+    "pytubefix",
+    "streamlit",
+    "google-genai",
+    "groq",
+    "beautifulsoup4",
+    "lxml",
+    "pypandoc_binary",
+    "ebooklib",
+    "pycryptodome==3.21.0",
+    "pyjwt",
+    "yt-dlp",
+    "python-dotenv",
+    "watchdog",
+    "click",
+    "transformers",
+]
+
+[dependency-groups]
+dev = ["ipykernel", "pytest", "pytest-playwright"]
+
+[tool.ruff]
+isort.no-sections = true
+extend-ignore = ["E203", "E402", "E501", "E712", "F401", "F811"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["handy_utilsls"]
+
+[project.urls]
+repository = "https://github.com/hoishing/handy-utils"

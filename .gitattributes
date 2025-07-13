@@ -1,0 +1,7 @@
+*.webp !text !filter !merge !diff
+*.pdf !text !filter !merge !diff
+*.zip !text !filter !merge !diff
+*.jpg !text !filter !merge !diff
+*.dat !text !filter !merge !diff
+*.der !text !filter !merge !diff
+*.png !text !filter !merge !diff
