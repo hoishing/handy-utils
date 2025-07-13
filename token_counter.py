@@ -18,33 +18,33 @@ MODELS = {
 
 
 def counter(provider: str, model: str, api_key: str, content: str) -> int:
-    match provider:
-        case "Google":
-            client = genai.Client(api_key=api_key)
-            response = client.models.count_tokens(model=model, contents=content)
-            return response.total_tokens
-        case "HuggingFace":
-            try:
-                tokenizer = AutoTokenizer.from_pretrained(model, token=api_key)
+    try:
+        match provider:
+            case "Google":
+                client = genai.Client(api_key=api_key)
+                response = client.models.count_tokens(model=model, contents=content)
+                return response.total_tokens
+            case "HuggingFace":
+                tokenizer = AutoTokenizer.from_pretrained(model, api_key=api_key)
                 tokens = tokenizer.encode(content)
                 return len(tokens)
-            except Exception as e:
-                st.error(str(e), icon="⚠️")
-                st.stop()
+    except Exception as e:
+        st.error(e.__dict__["message"])
 
 
 def model_chooser(provider: str, content: str):
     api_key = api_key_input(provider)
 
     c1, c2 = st.columns([3, 1], vertical_alignment="bottom")
-    model = c1.selectbox(
-        "Select a model",
-        MODELS[provider],
+    model = c1.selectbox("Select a model", MODELS[provider])
+    if c2.button(
+        "Count tokens",
+        use_container_width=True,
+        key=f"{provider}_counter",
         disabled=not api_key,
-    )
-    if c2.button("Count tokens", use_container_width=True, key=f"{provider}_counter"):
-        token_count = counter(provider, model, api_key, content)
-        st.markdown(f":violet-badge[:material/token: tokens] {token_count}")
+    ):
+        if token_count := counter(provider, model, api_key, content):
+            st.markdown(f":violet-badge[:material/token: tokens] {token_count}")
 
 
 def body():
@@ -68,5 +68,4 @@ def body():
 
 def app():
     app_header(__name__)
-
     main_container(body)
