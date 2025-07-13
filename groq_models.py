@@ -40,12 +40,12 @@ def body():
     with c1:
         groq_api_key = api_key_input("Groq")
 
-    get_models = c2.button(
-        "Get Models", use_container_width=True, key="get-groq-models"
+    c2.button(
+        "Get Models",
+        use_container_width=True,
+        key="get-groq-models",
+        disabled=not groq_api_key,
     )
-
-    if get_models and not groq_api_key:
-        st.error("Please enter a valid Groq API Key")
 
 
 def app():
@@ -57,4 +57,7 @@ def app():
         st.write("")
         st.write("")
         st.markdown("#### ✨ &nbsp; Active Models")
-        model_df(st.session_state["groq-api-key"])
+        try:
+            model_df(st.session_state["groq-api-key"])
+        except Exception as e:
+            st.error(e.__dict__["body"]["error"]["message"], icon="⚠️")
