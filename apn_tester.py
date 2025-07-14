@@ -1,4 +1,3 @@
-# %% =================================================
 import jwt
 import streamlit as st
 import time
@@ -8,7 +7,6 @@ from io import StringIO
 from ui import app_header, divider, main_container
 
 
-# %% ================================================= utils
 class EndPt(StrEnum):
     Development = ".sandbox"
     Production = ""
@@ -65,9 +63,6 @@ def send_push_notification(
     return response
 
 
-# %% ================================================= app
-
-
 def usage():
     st.markdown(
         """
@@ -89,6 +84,10 @@ def usage():
         ```
         - drag `local-payload.apns` to the simulator to see if it works or not
         - refer to the help of each input field for more details
+        - ![yt-icon] &nbsp; [demo]
+
+        [demo]: https://youtu.be/ZocYEKC9rSA
+        [yt-icon]: https://api.iconify.design/qlementine-icons:youtube-fill-16.svg?color=%23ff4747
         """
     )
 
