@@ -62,7 +62,7 @@ def utils_table_md():
     )
     youtube = "[youtube]: https://api.iconify.design/bi:youtube.svg?color=%23ff4242"
     screenshot = "[screenshot]: https://api.iconify.design/material-symbols:imagesmode-rounded.svg?color=%23ffae52"
-    table = "| Feature | Description | Demo |\n"
+    table = "| feature | description | demo |\n"
     table += "| --- | --- | :---: |\n"
     for page_name in page_metadata:
         image = f"{raw_img_base}{page_name}.webp"
