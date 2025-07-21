@@ -2,7 +2,7 @@
 authors = [{ name = "Kelvin Ng", email = "hoishing@gmail.com" }]
 license = { text = "MIT" }
 name = "handy-utils"
-version = "0.5.3"
+version = "0.6.0"
 description = "Handy Utilities For Daily Life Hacks"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -20,13 +20,13 @@ dependencies = [
     "pyjwt",
     "yt-dlp",
     "python-dotenv",
-    "watchdog",
     "click",
     "transformers",
+    "pillow",
 ]
 
 [dependency-groups]
-dev = ["ipykernel", "pytest", "pytest-playwright"]
+dev = ["ipykernel", "pytest", "pytest-playwright", "watchdog"]
 
 [tool.ruff]
 isort.no-sections = true

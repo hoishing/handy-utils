@@ -14,6 +14,7 @@
 | Remove DRM | Remove DRM of Your Own Ebook from Adobe Digital Edition |  [![youtube]](https://youtu.be/frNyHMN4_e4)  [![screenshot]](https://raw.githubusercontent.com/hoishing/handy-utils/main/screenshots/rm_drm.webp) |
 | Groq Models | List all currently active and available models in Groq |  [![youtube]](https://youtu.be/CO8QFJhJ2Z8)  [![screenshot]](https://raw.githubusercontent.com/hoishing/handy-utils/main/screenshots/groq_models.webp) |
 | PyPI Name Checker | Check the availability of PyPi package names |  [![youtube]](https://youtu.be/SRdoIzs6N3k)  [![screenshot]](https://raw.githubusercontent.com/hoishing/handy-utils/main/screenshots/pypi_name_checker.webp) |
+| Icon Resize | Resize icon to various sizes |  [![youtube]](https://youtu.be/3enxU_c3hzg)  [![screenshot]](https://raw.githubusercontent.com/hoishing/handy-utils/main/screenshots/icon_resize.webp) |
 
 [screenshot]: https://api.iconify.design/material-symbols:imagesmode-rounded.svg?color=%23ffae52
 [youtube]: https://api.iconify.design/bi:youtube.svg?color=%23ff4242

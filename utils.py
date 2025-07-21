@@ -60,6 +60,13 @@ page_metadata = {
         "description": "Check the availability of PyPi package names",
         "youtube": "https://youtu.be/SRdoIzs6N3k",
     },
+    "icon_resize": {
+        "title": "Icon Resize",
+        "color": "green",
+        "icon": "photo_size_select_small",
+        "description": "Resize icon to various sizes",
+        "youtube": "https://youtu.be/3enxU_c3hzg",
+    },
     # "astrobro_updater": {
     #     "title": "Astrobro Updater",
     #     "color": "orange",
