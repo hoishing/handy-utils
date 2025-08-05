@@ -24,7 +24,6 @@ RUN uv sync --frozen || uv sync
 
 # Copy application code
 COPY . .
-
 # Expose port
 EXPOSE 8211
 
