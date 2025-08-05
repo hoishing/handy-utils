@@ -1,3 +1,18 @@
+---
+title: Handy Utilities
+emoji: 🛠️
+colorFrom: red
+colorTo: red
+sdk: docker
+app_port: 8211
+tags:
+- streamlit
+- utilities
+pinned: false
+short_description: Handy Utilities For Daily Life Hacks
+license: mit
+---
+
 # Handy Utilities with Streamlit
 
 > Handy Utilities For Daily Life Hacks
