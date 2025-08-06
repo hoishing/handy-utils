@@ -1,0 +1,10 @@
+.env
+.pytest_cache/
+.venv/
+__pycache__/
+.DS_Store
+.vscode/
+.git/
+.gitignore
+.cursor/
+tests/
