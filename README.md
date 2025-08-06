@@ -2,7 +2,7 @@
 title: Handy Utilities
 emoji: 🛠️
 colorFrom: red
-colorTo: red
+colorTo: gray
 sdk: docker
 app_port: 8211
 tags:
@@ -16,6 +16,8 @@ license: mit
 # Handy Utilities with Streamlit
 
 > Handy Utilities For Daily Life Hacks
+
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/hoishing/handy-utils)
 
 ## Utilities
 
@@ -36,33 +38,20 @@ license: mit
 
 ## Usage
 
-- Run Directly with `uvx`
+- Run directly in [Hugging Face Spaces](https://huggingface.co/spaces/hoishing/handy-utils)
+
+OR
+
+- Clone and run locally
 
 ```bash
-uvx handy-utils
-
-# update with latest version
-uvx handy-utils@latest
+git clone https://github.com/hoishing/handy-utils
+cd handy-utils
+uv sync
+uv run streamlit run main.py
 ```
 
-- Install Locally
-
-```bash
-uv tool install handy-utils
-
-# then start the streamlit app
-handy-utils
-```
-
-## API Keys
-
-- api key fields in the app will be auto-filled after providing the `.env` file (optional)
-
-```bash
-uvx handy-utils path/to/your/.env
-```
-
-- content of `.env` file
+- Add `.env` file to the root directory for auto-filling API key fields (optional)
 
 ```ini
 GOOGLE_API_KEY=your-google-api-key
