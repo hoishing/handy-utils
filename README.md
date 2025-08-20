@@ -1,18 +1,3 @@
----
-title: Handy Utilities
-emoji: 🛠️
-colorFrom: red
-colorTo: gray
-sdk: docker
-app_port: 8211
-tags:
-- streamlit
-- utilities
-pinned: false
-short_description: Handy Utilities For Daily Life Hacks
-license: mit
----
-
 # Handy Utilities with Streamlit
 
 > Handy Utilities For Daily Life Hacks
@@ -38,7 +23,7 @@ license: mit
 
 ## Usage
 
-- Run directly in [Hugging Face Spaces](https://huggingface.co/spaces/hoishing/handy-utils)
+- Use online: <https://handy.kng2.cc>
 
 OR
 
