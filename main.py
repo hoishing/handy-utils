@@ -1,10 +1,6 @@
 import importlib
 import streamlit as st
-from pathlib import Path
-from utils import url_path, page_metadata
-
-
-root_dir = Path(__file__).parent
+from utils import page_metadata, url_path
 
 st.set_page_config(
     page_title="Handy Utilities",
@@ -15,9 +11,9 @@ st.set_page_config(
     },
 )
 
-st.logo(root_dir / "static/handy-utils-banner.png")
+st.logo("static/handy-utils-banner.png")
 
-st.html(root_dir / "style.css")
+st.html("style.css")
 
 
 pages = []
