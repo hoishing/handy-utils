@@ -67,13 +67,13 @@ page_metadata = {
         "description": "Resize icon to various sizes",
         "youtube": "https://youtu.be/3enxU_c3hzg",
     },
-    # "astrobro_updater": {
-    #     "title": "Astrobro Updater",
-    #     "color": "orange",
-    #     "icon": "planet",
-    #     "description": "Update [Astrobro](https://hoishing.github.io/astrobro/) JSON files with city names and country codes",
-    #     "youtube": "",
-    # },
+    "webp_converter": {
+        "title": "WebP Converter",
+        "color": "orange",
+        "icon": "imagesmode",
+        "description": "Convert images to WebP format",
+        "youtube": "",
+    },
 }
 
 

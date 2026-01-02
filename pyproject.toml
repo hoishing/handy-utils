@@ -2,10 +2,10 @@
 authors = [{ name = "Kelvin Ng", email = "hoishing@gmail.com" }]
 license = { text = "MIT" }
 name = "handy-utils"
-version = "0.6.0"
+version = "0.7.0"
 description = "Handy Utilities For Daily Life Hacks"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = [
     "mistralai",
     "pytubefix",
